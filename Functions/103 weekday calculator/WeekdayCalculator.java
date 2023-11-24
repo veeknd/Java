@@ -25,9 +25,9 @@ public class WeekdayCalculator
 		int mm = keyboard.nextInt();
 		int dd = keyboard.nextInt();
 		int yyyy = keyboard.nextInt();
-
+		String result = weekday(mm,dd,yyyy);
 		// put a function call for weekday() here
-		System.out.println("You were born on ");
+		System.out.println("You were born on " + result);
 	}
 
 
@@ -37,10 +37,18 @@ public class WeekdayCalculator
 		String date = "";
 		yy = yyyy - 1900;
 		total = yy % 4;
+		total = total + yy + dd + month_offset(mm);
+		if (is_leap(yyyy)){
+			if (mm < 3){
+				total = total -1;
+			}
+		}
+		int remainder = total % 7;
+		String day_name = weekday_name(remainder);
 
 		// bunch of calculations go here
 
-		date = month_name(mm) + ", " + yyyy;
+		date = day_name + ", " + month_name(mm) + ", " + yyyy;
 
 		return date;
 	}
@@ -66,4 +74,139 @@ public class WeekdayCalculator
 		
 		return result;
 	}
+	public static int month_offset( int month )
+	{
+		int result;
+		// Your code goes in here.
+		if (month == 1){
+			result = 1;
+		}
+		else if (month ==2){
+			result = 4;
+		}
+		else if (month == 3){
+			result = 4;
+		}
+		else if (month == 4){
+			result = 0;
+		}
+		else if (month == 5){
+			result = 2;
+		}
+		else if (month == 6){
+			result = 5;
+		}
+		else if (month == 7){
+			result = 0;
+		}
+		else if (month == 8){
+			result = 3;
+		}
+		else if (month == 9){
+			result = 6;
+		}
+		else if (month == 10){
+			result = 1;
+		}
+		else if (month == 11){
+			result = 4;
+		}
+		else if (month == 12){
+			result = 6;
+		}
+		else {
+			result = -1;
+		}
+		return result;
+	}
+
+	public static String weekday_name( int weekday )
+	{
+		String result = "";
+
+		if ( weekday == 1 )
+		{
+			result = "Sunday";
+		}
+		else if ( weekday == 2 )
+		{
+			result = "Monday";
+		}
+        else if ( weekday == 3 )
+		{
+			result = "Tuesday";
+		}
+        else if ( weekday == 4 )
+		{
+			result = "Wednesday";
+		}
+        else if ( weekday == 5 )
+		{
+			result = "Thursday";
+		}
+        else if ( weekday == 6 )
+		{
+			result = "Friday";
+		}
+        else if ( weekday == 7 )
+		{
+			result = "Saturday";
+		}
+        else if ( weekday == 0 )
+		{
+			result = "Saturday";
+		}
+		else
+        {
+            result = "error";
+        }
+		return result;
+	}
+	
+	public static String month_name( int month )
+	{
+		String result;
+		if (month == 1){
+			result = "January";
+		}
+		else if (month ==2){
+			result = "February";
+		}
+		else if (month == 3){
+			result = "March";
+		}
+		else if (month == 4){
+			result = "April";
+		}
+		else if (month == 5){
+			result = "May";
+		}
+		else if (month == 6){
+			result = "June";
+		}
+		else if (month == 7){
+			result = "July";
+		}
+		else if (month == 8){
+			result = "August";
+		}
+		else if (month == 9){
+			result = "September";
+		}
+		else if (month == 10){
+			result = "October";
+		}
+		else if (month == 11){
+			result = "November";
+		}
+		else if (month == 12){
+			result = "December";
+		}
+		else {
+			result = "error";
+		}
+		
+		return result;
+	}
+
 }
