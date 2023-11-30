@@ -1,27 +1,39 @@
-from java.util import Scanner;
+import java.util.Scanner;
 
-class void GenderGAme{
-    class static void main(String[] args)
+public class GenderGame{
+     public static void main(String[] args)
     {
-        String gender;
+        String gender = "F";
         String first_name;
         String last_name;
         int age;
-        String married;
+        String married = "y";
+        String tag;
 
         Scanner keyboard = new Scanner(System.in);
         System.out.print("What is your gender (M or F): ");
         gender = keyboard.next();
-        System.out.print("First name: ");
-        first_name = keyboard.next();
-        System.out.print("Last name: ");
-        last_name = keyboard.next();
-        System.out.print("Age: ");
-        age = keyboard.nextInt();
+ 
 
         System.out.print("Are you married: ");
         married = keyboard.next();
-        if ()
+
+        if ("F".compareTo(gender) == 0)
+        {
+            if ("y".compareTo(married) == 0)
+            {
+            tag = "Mrs"
+            }
+            else if ("n".compareTo(married) == 0)
+            {
+                tag = "Ms"
+            }
+
+            
+        }
+        else{
+            tag = "Mr"
+        }
 
 
 
