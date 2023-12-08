@@ -1,7 +1,6 @@
-public class LetterToYourself
+public class StillUsingVariables
 {
   public static void main( String[] args)
-  {
 {
         String name = "Juan Vandez";
         int year = 2010;
