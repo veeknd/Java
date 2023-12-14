@@ -1,4 +1,4 @@
-public class BasicArray
+public class BasicArray0
 {
     public static void main(String[] args)
     {
